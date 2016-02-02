@@ -83,6 +83,24 @@ class Table extends BaseTable
     }
 
     /**
+     * Add datetime columns created and modified
+     * 
+     * @return Table
+     */
+    public function addDatetime()
+    {
+        $this
+            ->addColumn('created', 'datetime', [
+                'null' => true
+            ])
+            ->addColumn('modified', 'datetime', [
+                'null' => true
+            ]);
+
+        return $this;
+    }
+
+    /**
      * This method is called in case a primary key was defined using the addPrimaryKey() method.
      * It currently does something only if using SQLite.
      * If a column is an auto-increment key in SQLite, it has to be a primary key and it has to defined
